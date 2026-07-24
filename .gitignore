@@ -1,0 +1,39 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg-info/
+dist/
+build/
+.env
+*.env
+venv/
+.venv/
+
+# ── Backend secrets & data ───────────────────────────────────────────────────
+backend/db/history.json
+backend/db/*.json
+
+# ── Scraper workspace & output (can be large) ────────────────────────────────
+.webscraper/
+
+# ── Node / React ──────────────────────────────────────────────────────────────
+scraper-ui/node_modules/
+scraper-ui/dist/
+scraper-ui/.vite/
+
+# ── OS & editor ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/settings.json
+
+# ── Temp / fix scripts ────────────────────────────────────────────────────────
+backend/fix_zip.py
+backend/fix_zip_names.py
+backend/test_zip.py
+scraper-ui/fix.py
