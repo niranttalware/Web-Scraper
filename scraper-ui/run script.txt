@@ -1,0 +1,14 @@
+Need to install Python
+
+Need to install the required libraries => requests, beautifulsoup4, playwright
+=> pip install requests beautifulsoup4 playwright
+
+Need to Install Playwright Library
+=> playwright install
+
+
+To creates all the urls from any website and creates urls.txt file and store all urls in that file and failed urls in failed_urls.txt file
+=> python url_finder.py https://example.com 
+
+It executes the script using all the URLs from urls.txt and generates a structured folder containing all the scraped data (Images, HTML, JSON, and MD files).
+=> python web_scraper.py urls.txt
