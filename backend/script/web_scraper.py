@@ -533,8 +533,26 @@ def download_images(soup, page_url, images_folder):
             img_path = os.path.join(images_folder, filename)
             if not os.path.exists(img_path):
                 resp = requests.get(img_url, headers=HEADERS, timeout=10, verify=False)
+                if resp.status_code != 200:
+                    return False
+                
+                content = resp.content
+                head = content[:15].lower()
+                if b'<!doctype html>' in head or b'<html' in head:
+                    return False
+                    
                 with open(img_path, "wb") as f:
-                    f.write(resp.content)
+                    f.write(content)
+                    
+                # Automatically fix CMYK images to RGB if PIL is available
+                try:
+                    from PIL import Image
+                    with Image.open(img_path) as img:
+                        if img.mode == 'CMYK':
+                            rgb_img = img.convert('RGB')
+                            rgb_img.save(img_path)
+                except Exception:
+                    pass
             return True
         except Exception:
             return False
