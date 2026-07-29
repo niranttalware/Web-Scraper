@@ -1,0 +1,10 @@
+flask
+flask-cors
+requests
+beautifulsoup4
+playwright
+openpyxl
+psycopg2-binary
+PyJWT
+bcrypt
+python-dotenv
