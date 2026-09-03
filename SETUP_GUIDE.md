@@ -61,7 +61,7 @@ Once PostgreSQL is installed:
    ```powershell
    python app.py
    ```
-   *The backend should now say it connected to PostgreSQL successfully! Keep this terminal open.*
+   *The backend automatically runs all database migrations and creates the default user account (`Test@gmail.com` / `Test@123`).*
 
 ---
 
@@ -73,7 +73,6 @@ Once PostgreSQL is installed:
    ```
 
 2. **Install Node Dependencies**:
-   *(If this fails, ensure you installed Node.js v20+ and run it again)*
    ```powershell
    npm install
    ```
@@ -85,9 +84,11 @@ Once PostgreSQL is installed:
 
 ---
 
-## 🎉 5. You're Done!
-Open your browser and navigate to the local URL provided by Vite (usually `http://localhost:5173`). 
+## 🎉 5. Login & Verification
+Open your browser at `http://localhost:5173`.
 
-1. Click **Register** to create a brand new user account.
-2. Log in with your new credentials.
+1. **Log in with Default User**:
+   - **Email**: `Test@gmail.com`
+   - **Password**: `Test@123`
+2. **Or Click Register** to create any new user account.
 3. Your application is now fully running and ready to scrape!

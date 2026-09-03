@@ -66,6 +66,23 @@ def _build_dsn():
     )
 
 
+def _seed_default_users(conn):
+    """Seed default test user if not already present."""
+    import bcrypt
+    try:
+        with conn.cursor() as cur:
+            cur.execute("SELECT id FROM users WHERE email = %s LIMIT 1;", ("Test@gmail.com",))
+            if not cur.fetchone():
+                pw_hash = bcrypt.hashpw(b"Test@123", bcrypt.gensalt()).decode('utf-8')
+                cur.execute(
+                    "INSERT INTO users (email, full_name, password_hash) VALUES (%s, %s, %s);",
+                    ("Test@gmail.com", "Test User", pw_hash)
+                )
+                print("[PostgreSQL] Seeded default user: Test@gmail.com (Password: Test@123)")
+    except Exception as e:
+        print(f"[PostgreSQL] Warning seeding default user: {e}")
+
+
 def get_db():
     """
     Return a live psycopg2 connection (singleton).
@@ -93,6 +110,8 @@ def get_db():
             cur.execute(CREATE_TABLE_USERS_SQL)
             cur.execute(CREATE_TABLE_SQL)
             cur.execute(ALTER_TABLE_SQL)
+
+        _seed_default_users(_conn)
 
         print(f"[PostgreSQL] Connected to '{Config.PG_DB}' successfully.")
         return _conn
