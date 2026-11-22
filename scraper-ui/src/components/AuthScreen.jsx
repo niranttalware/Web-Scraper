@@ -42,7 +42,7 @@ export default function AuthScreen({ onLoginSuccess, onBack, theme, toggleTheme,
         <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 cursor-default select-none">
                 <h1 className="text-xl font-bold text-slate-800 dark:text-white">Web Scraper</h1>
                 <div className="relative">
                   <Terminal className="w-6 h-6 text-purple-500" />
