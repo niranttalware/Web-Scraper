@@ -42,9 +42,7 @@ export default function AuthScreen({ onLoginSuccess, onBack, theme, toggleTheme,
         <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-6">
-              <img src="/logo.svg" alt="Winjit Logo" className="h-8 w-auto dark:brightness-0 dark:invert" />
-              <div className="h-6 w-px bg-slate-200 dark:bg-slate-800 hidden sm:block"></div>
-              <div className="hidden sm:flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <h1 className="text-xl font-bold text-slate-800 dark:text-white">Web Scraper</h1>
                 <div className="relative">
                   <Terminal className="w-6 h-6 text-purple-500" />
