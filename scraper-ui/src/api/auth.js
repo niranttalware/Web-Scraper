@@ -1,4 +1,5 @@
-const API_BASE = 'http://localhost:5000/api';
+const API_ROOT = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+const API_BASE = `${API_ROOT}/api`;
 
 export const setToken = (token, user = null, rememberMe = true) => {
   if (token) {

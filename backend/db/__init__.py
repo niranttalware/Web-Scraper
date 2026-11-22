@@ -110,10 +110,12 @@ def get_db():
             cur.execute(CREATE_TABLE_USERS_SQL)
             cur.execute(CREATE_TABLE_SQL)
             cur.execute(ALTER_TABLE_SQL)
+            cur.execute("SELECT current_database();")
+            connected_db_name = cur.fetchone()[0]
 
         _seed_default_users(_conn)
 
-        print(f"[PostgreSQL] Connected to '{Config.PG_DB}' successfully.")
+        print(f"[PostgreSQL] Connected to '{connected_db_name}' successfully.")
         return _conn
 
     except Exception as e:
